@@ -7,7 +7,7 @@ require (
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d
 	github.com/biter777/countries v1.3.4
 	github.com/gobwas/ws v1.1.0
-	github.com/lucas-clemente/quic-go v0.0.0-00010101000000-000000000000
+	github.com/lucas-clemente/quic-go 
 	github.com/manifoldco/promptui v0.9.0
 	github.com/marten-seemann/qtls v0.10.0
 	github.com/miekg/dns v1.1.48
