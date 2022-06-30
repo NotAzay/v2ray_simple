@@ -345,7 +345,7 @@ func NewAddrFromAny(thing any) (addr Addr, err error) {
 	}
 
 	switch dest_type {
-	case 0: //只给出数字的情况, 认为该数字为端口, ip为本机。
+	case 0: //只给出数字的情况; 此时我们认为 该数字为端口、 ip为本机。
 		addr = Addr{
 			IP:   net.IPv4(127, 0, 0, 1),
 			Port: integer,
@@ -504,7 +504,7 @@ func ParseStrToAddr(s string) (atyp byte, addr []byte, port_uint16 uint16, err e
 		} else {
 			addr = make([]byte, net.IPv6len)
 			atyp = AtypIP6
-			copy(addr[:], ip)
+			copy(addr, ip)
 		}
 	} else {
 		if len(host) > 255 {
@@ -621,7 +621,7 @@ func V2rayGetAddrFrom(buf utils.ByteReader) (addr Addr, err error) {
 		if err != nil {
 			return
 		}
-		if n != 4 {
+		if n != net.IPv6len {
 			err = utils.ErrShortRead
 			return
 		}
